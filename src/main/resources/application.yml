@@ -1,0 +1,20 @@
+spring:
+  # page 90
+  jpa:
+    # 전송 쿼리 확인
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    # 테이블 생성 후에 data.sql 실행
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: kic24
+    password: 1234
+    driver-class-name: oracle.jdbc.OracleDriver
