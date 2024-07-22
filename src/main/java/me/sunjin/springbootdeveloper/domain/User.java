@@ -21,21 +21,25 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SequenceGeneratorName")
     @SequenceGenerator(
             name="SequenceGeneratorName",
-            sequenceName = "kicuserseq", allocationSize = 1
+            sequenceName = "userseq", allocationSize = 1
     )
     @Column(name = "id", updatable = false)
     private Long id;
 
-    @Column(name = "email", nullable = false, unique = true)
-    private String email;
+    @Column(name = "userid", nullable = false, unique = true)
+    private String userid;
 
     @Column(name = "password")
     private String password;
 
+    @Column(name = "role")
+    private String role;
+
     @Builder
-    public User(String email, String password, String auth) {
-        this.email = email;
+    public User(String userid, String password, String auth) {
+        this.userid = userid;
         this.password = password;
+        role = "ROLE_USER";
     }
 
     // 권한 반환
@@ -46,7 +50,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return userid;
     }
 
     @Override

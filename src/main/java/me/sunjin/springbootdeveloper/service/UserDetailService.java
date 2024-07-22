@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 public class UserDetailService implements UserDetailsService {
     private final UserRepository userRepository;
 
-    public User loadUserByUsername(String email) {
-        return userRepository.findByEmail(email)
-                .orElseThrow(()-> new IllegalArgumentException((email)));
+    public User loadUserByUsername(String userid) {
+        return userRepository.findByUserid(userid)
+                .orElseThrow(()-> new IllegalArgumentException((userid)));
     }
 }

@@ -21,7 +21,7 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SequenceGeneratorName")
     @SequenceGenerator(
             name="SequenceGeneratorName",
-            sequenceName = "kicboardseq", allocationSize = 1
+            sequenceName = "boardseq", allocationSize = 1
     )
     @Column(name = "id", updatable = false)
     private Long id;

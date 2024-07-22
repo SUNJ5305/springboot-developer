@@ -15,7 +15,7 @@ public class UserService {
 
     public Long save(AddUserRequest dto) {
         return userRepository.save(User.builder()
-                .email(dto.getEmail())
+                .userid(dto.getUserid())
                 .password(bCryptPasswordEncoder.encode(dto.getPassword()))
                 .build()).getId();
     }

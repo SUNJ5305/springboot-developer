@@ -1,6 +1,7 @@
 package me.sunjin.springbootdeveloper.config;
 
 import lombok.RequiredArgsConstructor;
+import me.sunjin.springbootdeveloper.domain.UserRole;
 import me.sunjin.springbootdeveloper.service.UserDetailService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -42,6 +43,9 @@ public class WebSecurityConfig {
                                 new AntPathRequestMatcher("/signup"),
                                 new AntPathRequestMatcher("/user")
                         ).permitAll()
+                        .requestMatchers(
+                                new AntPathRequestMatcher("/admin/**")
+                        ).hasRole(UserRole.ADMIN.getValue())
                         .anyRequest().authenticated())
                 .formLogin(formLogin -> formLogin   // 4.폼 기반 로그인 설정
                         .loginPage("/login")
