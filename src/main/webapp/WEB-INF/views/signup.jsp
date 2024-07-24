@@ -1,5 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>회원 가입</title>
@@ -19,10 +21,8 @@
                 <h2 class="text-white">SIGN UP</h2>
                 <p class="text-white-50 mt-2 mb-5">서비스 사용을 위한 회원 가입</p>
 
-                <div class = "mb-2">
-                    <form th:action="@{/user}" method="POST">
-                        <!-- 토큰을 추가하여 CSRF 공격 방지 -->
-                        <input type="hidden" th:name="${_csrf?.parameterName}" th:value="${_csrf?.token}" />
+                <div class="mb-2">
+                    <form action="${pageContext.request.contextPath}/user" method="POST">
                         <div class="mb-3">
                             <label class="form-label text-white">id 입력</label>
                             <input type="text" class="form-control" name="userid">

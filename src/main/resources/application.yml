@@ -6,13 +6,17 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
     # 테이블 생성 후에 data.sql 실행
-    defer-datasource-initialization: true
-    hibernate:
-      ddl-auto: update
-      naming:
+  hibernate:
+    ddl-auto: create
+    naming:
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  defer-datasource-initialization: true
   datasource:
     url: jdbc:oracle:thin:@localhost:1521:xe
     username: kic24

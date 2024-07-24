@@ -13,5 +13,5 @@ import java.util.Optional;
     - https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html
  */
 public interface UserRepository extends JpaRepository<User, Long> {
-    Optional<User> findByUserid(String userid);
+    Optional<User> findByUserid(String username);
 }

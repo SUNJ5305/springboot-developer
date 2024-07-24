@@ -1,5 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>로그인</title>
@@ -19,13 +21,11 @@
                 <h2 class="text-white">LOGIN</h2>
                 <p class="text-white-50 mt-2 mb-5">서비스를 사용하려면 로그인을 해주세요!</p>
 
-                <div class = "mb-2">
-                    <form action="/login" method="POST">
-                        <!--    FORM태그 전송시 CSRF토큰 전달방식  -->
-                        <input type="hidden" th:name="${_csrf?.parameterName}" th:value="${_csrf?.token}" />
+                <div class="mb-2">
+                    <form action="${pageContext.request.contextPath}/loginPro" method="POST">
                         <div class="mb-3">
                             <label class="form-label text-white">id 입력</label>
-                            <input type="text" class="form-control" name="username">
+                            <input type="text" class="form-control" name="userid">
                         </div>
                         <div class="mb-3">
                             <label class="form-label text-white">Password</label>
@@ -34,7 +34,7 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
 
-                    <button type="button" class="btn btn-secondary mt-3" onclick="location.href='/signup'">회원가입</button>
+                    <button type="button" class="btn btn-secondary mt-3" onclick="location.href='${pageContext.request.contextPath}/signup'">회원가입</button>
                 </div>
             </div>
         </div>
